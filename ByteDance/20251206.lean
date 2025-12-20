@@ -26,8 +26,10 @@ It asserts that given a set `A` which is an additive basis of finite order
 and has asymptotic density zero (Little-o of $N$), the ratio of the cardinality
 of the sumset `A + A` to the cardinality of `A` (restricted to `[1, N]`)
 does **not** tend to infinity as `N` goes to infinity.-/
-theorem erdos_problem_337 {A : Set ℕ} (hadd : ∃ n : ℕ, IsAdditiveBasis A n)
-  (hdense : (fun N ↦ (Nat.card (initialSegment A N) : ℝ)) =o[atTop] (Nat.cast : ℕ → ℝ)) :
-    ¬ Tendsto (fun N ↦
-      (Nat.card (initialSegment (A + A) N) : ℝ) / (Nat.card (initialSegment A N) : ℝ)) atTop atTop :=
+theorem erdos_problem_337 :
+  ∃ A : Set ℕ,
+    (∃ n : ℕ, IsAdditiveBasis A n) ∧
+    ((fun N ↦ (Nat.card (initialSegment A N) : ℝ)) =o[atTop] (Nat.cast : ℕ → ℝ)) →
+  ¬ Tendsto (fun N ↦
+    (Nat.card (initialSegment (A + A) N) : ℝ) / (Nat.card (initialSegment A N) : ℝ)) atTop atTop :=
   sorry
