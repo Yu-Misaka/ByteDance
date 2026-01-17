@@ -27,7 +27,9 @@ lemma erdos_848_congr_in_sets (N : ℕ) : erdos_848_congr N ∈ erdos_848_sets N
   rwa [← Nat.modEq_zero_iff_dvd]
 
 /-- The family of valid sets is nonempty (e.g., it contains the empty set or the modular set).-/
-lemma erdos_848_sets_nonempty {N : ℕ} : (erdos_848_sets N).Nonempty := sorry
+lemma erdos_848_sets_nonempty {N : ℕ} : (erdos_848_sets N).Nonempty := by
+  use ∅
+  simp [erdos_848_sets, erdos_848_prop]
 
 /-- The set of cardinalities of all valid sets is nonempty.-/
 lemma erdos_848_sets_nonempty' {N : ℕ} :
